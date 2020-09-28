@@ -2,6 +2,12 @@
 
 This is a Dropbox with Cache application which is to host a server to store data with cache. The purpose of using cache is to speed up the loading of frequently accessed resources and to allow multiple users to request the same resource from server/ cache instead of local storage.
 
+## Snapshots of Dropbox
+
+![](images/dropbox-1.png)
+
+![](images/dropbox-2.png)
+
 ## How
 * Create a HTTP server with express.js
 * Read file from local directory with fs and Promise

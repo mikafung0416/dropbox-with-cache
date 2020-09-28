@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Mukta:wght@300;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./download.css">
+    <title>Download Time!</title>
+</head>
+<body>
+    <div class="container">
+        <h1>Upload Successful!</h1>
+        <h3>To download the file(s), please click the link(s) below.</h3>
+        <div id="download-files"></div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
+    <script>
+        // retrieve filenames from backend and append links to the div
+        // http:// is important, just localhost... doesn't work
+        $.get('/filenames', (data) => {
+            console.log(data);
+                for (let i = 0; i < data.length; i++) {
+                    $('#download-files').append(`<a href="http://localhost:3000/dl/${data[i]}">${data[i]}</a><br />`);
+                }
+        })
+    </script>
+</body>
+</html>
+
+

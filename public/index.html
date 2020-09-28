@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Mukta:wght@300;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./index.css">
+    <title>Dropbox by Mika</title>
+</head>
+<body>
+    <div class="container">
+        <h1>Dropbox By Mika</h1>
+        <h3>Instructions</h3>
+        <ol>
+            <li>Choose one or more file(s) to upload</li>
+            <li>Click 'Upload'</li>
+            <li>Wait until it's done...</li>
+        </ol>
+        <form action="/upload" method="POST" enctype="multipart/form-data">
+            <input type="file" name="Choose File" id="choose" onchange="displayNames()" multiple> <!--multiple: to allow multiple files selection-->
+            <label for="choose" id="choose-label">Choose File</label>
+            <input type="submit" value="Upload" id="upload">
+        </form>
+        <div id="files-name"></div>
+    </div>
+    <script type='text/javascript'>
+        // display names of chosen files
+        function displayNames() {
+            let fullPath = document.getElementById('choose').files; // FileList {0: File, 1: File, length: 2}
+            let nameList = '';
+            // console.log(fullPath[0]); // 1st file
+            for (let i = 0; i < fullPath.length; i++) {
+                let fName = fullPath[i].name;
+                nameList+=fName +'<br />';
+            }
+            document.getElementById('files-name').innerHTML = nameList;
+        }
+    </script>
+</body>
+</html>
